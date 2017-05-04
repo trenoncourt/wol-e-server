@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  woleserver.api.computer:
+    image: woleserver.api.computer
+    build:
+      context: ./WoleServer.Api.Computer
+      dockerfile: Dockerfile
