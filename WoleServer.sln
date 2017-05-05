@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Common", "0 - Common", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{45FA285E-CB94-474F-B748-F687D72BE857}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoleServer.Common", "WoleServer.Common\WoleServer.Common.csproj", "{A84C7FF4-9C58-45FD-897F-C1D57E83C785}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0AC40C3A-84B1-4C9E-984F-27DE5926FA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AC40C3A-84B1-4C9E-984F-27DE5926FA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AC40C3A-84B1-4C9E-984F-27DE5926FA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84C7FF4-9C58-45FD-897F-C1D57E83C785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84C7FF4-9C58-45FD-897F-C1D57E83C785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84C7FF4-9C58-45FD-897F-C1D57E83C785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84C7FF4-9C58-45FD-897F-C1D57E83C785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{522D5E81-B103-496D-B752-195D1179FE2C} = {7185E6E6-C8E1-464B-9D39-CF859216317E}
 		{0AC40C3A-84B1-4C9E-984F-27DE5926FA44} = {45FA285E-CB94-474F-B748-F687D72BE857}
+		{A84C7FF4-9C58-45FD-897F-C1D57E83C785} = {C4516C35-A393-4241-B59D-DBC139920FF0}
 	EndGlobalSection
 EndGlobal

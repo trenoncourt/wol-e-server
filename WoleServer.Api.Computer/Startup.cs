@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WoleServer.Common;
+using AutoMapper;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace WoleServer.Api.Computer
 {
@@ -20,13 +26,38 @@ namespace WoleServer.Api.Computer
 
         public IConfigurationRoot Configuration { get; }
         
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvcCore();
+            services.AddCors(actions =>
+            {
+                var corsPolicy = new CorsPolicy();
+
+                corsPolicy.Headers.Add("*");
+                corsPolicy.Methods.Add("*");
+                corsPolicy.Origins.Add("*");
+                actions.AddPolicy("pol", corsPolicy);
+            });
+
+            services.AddMvcCore()
+                .AddJsonFormatters(settings =>
+                {
+                    settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    settings.NullValueHandling = NullValueHandling.Ignore;
+                    settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                });
+            services.AddAutoMapper();
+
+            return services.AddDryIoc<Bootstrap>();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            if (env.IsDevelopment())
+            {
+                loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            }
+
+            app.UseCors("pol");
             app.UseMvc();
         }
     }
