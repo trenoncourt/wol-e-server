@@ -1,0 +1,8 @@
+﻿{
+  "profiles": {
+    "WoleServer.Api.Ping": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:30730"
+    }
+  }
+}

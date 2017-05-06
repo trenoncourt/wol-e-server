@@ -6,3 +6,9 @@ services:
     build:
       context: ./WoleServer.Api.Computer
       dockerfile: Dockerfile
+
+  woleserver.api.ping:
+    image: woleserver.api.ping
+    build:
+      context: ./WoleServer.Api.Ping
+      dockerfile: Dockerfile
