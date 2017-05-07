@@ -27,6 +27,14 @@ namespace WoleServer.Api.Ping
                             return;
                         }
 
+                        if (context.Request.Method == "OPTIONS")
+                        {
+                            context.Response.Headers.Add("Access-Control-Allow-Origin", "*"); 
+                            context.Response.Headers.Add("Access-Control-Allow-Headers", context.Request.Headers["Access-Control-Request-Headers"]);
+                            context.Response.Headers.Add("Access-Control-Allow-Methods", context.Request.Headers["Access-Control-Request-Method"]);
+                            return;
+                        }
+
                         // Handle POST requesto only.
                         if (context.Request.Method != "POST")
                         {
@@ -34,6 +42,7 @@ namespace WoleServer.Api.Ping
                             return;
                         }
 
+                        context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
                         using (StreamReader sr = new StreamReader(context.Request.Body))
                         {
                             PingReply reply =
