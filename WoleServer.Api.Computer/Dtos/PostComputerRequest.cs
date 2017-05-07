@@ -2,6 +2,6 @@
 {
     public class PostComputerRequest
     {
-        
+        public string IpAdress { get; set; }
     }
 }
