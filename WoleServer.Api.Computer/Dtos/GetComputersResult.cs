@@ -2,6 +2,8 @@
 {
     public class GetComputersResult
     {
+        public string Name { get; set; }
+
         public string IpAdress { get; set; }
     }
 }
